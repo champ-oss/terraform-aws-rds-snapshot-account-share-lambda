@@ -1,5 +1,5 @@
 module "rds_snapshot_account_share_lambda" {
-  source              = "github.com/champ-oss/terraform-aws-lambda.git?ref=v1.0.71-2e2e648"
+  source              = "github.com/champ-oss/terraform-aws-lambda.git?ref=v1.0.77-3aea45c"
   git                 = var.git
   name                = "rds-snapshot-account-share-${random_string.identifier.result}"
   tags                = merge(local.tags, var.tags)

@@ -2,8 +2,6 @@ provider "aws" {
   region = "us-east-2"
 }
 
-data "aws_region" "current" {}
-
 locals {
   git = "terraform-aws-rds-snapshot-account-share-lambda"
 }
