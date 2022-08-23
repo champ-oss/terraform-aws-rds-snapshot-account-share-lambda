@@ -29,7 +29,7 @@ variable "enable_lambda_cw_event" {
 variable "schedule_expression" {
   description = "event schedule for lambda"
   type        = string
-  default     = "cron(0 17, 18, 19, 20 ? * * *)" # lambda executes every day, hourly from 5 - 8 pm UTC
+  default     = "cron(0 17,18,19,20 * * ? *)" # lambda executes every day, hourly from 5 - 8 pm UTC
 }
 
 variable "rds_snapshot_account_share_docker_tag" {
