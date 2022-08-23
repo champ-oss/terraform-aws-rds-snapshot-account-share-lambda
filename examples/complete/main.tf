@@ -3,7 +3,7 @@ provider "aws" {
 }
 
 locals {
-  git = "terraform-aws-rds-snapshot-account-share-lambda"
+  git = "terraform-aws-rds-util-lambda"
 }
 
 module "vpc" {
