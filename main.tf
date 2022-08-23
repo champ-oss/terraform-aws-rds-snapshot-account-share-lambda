@@ -13,4 +13,3 @@ resource "random_string" "identifier" {
   lower   = true
   numeric = false
 }
-

@@ -14,6 +14,6 @@ module "rds_snapshot_account_share_lambda" {
   ecr_tag             = var.rds_snapshot_account_share_docker_tag
   vpc_id              = var.vpc_id # eni delete resource bug https://github.com/hashicorp/terraform-provider-aws/issues/10329
   environment = {
-    AWS_SHARED_ACCOUNT         = var.aws_shared_account
+    AWS_SHARED_ACCOUNT = var.aws_shared_account
   }
 }
