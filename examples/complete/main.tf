@@ -3,7 +3,7 @@ provider "aws" {
 }
 
 locals {
-  git = "terraform-aws-rds-util-lambda"
+  git = "terraform-rds-util"
 }
 
 module "vpc" {
