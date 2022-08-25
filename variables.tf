@@ -29,13 +29,13 @@ variable "enable_lambda_cw_event" {
 variable "schedule_expression" {
   description = "event schedule for lambda"
   type        = string
-  default     = "cron(0 17,18,19,20 * * ? *)" # lambda executes every day, hourly from 5 - 8 pm UTC
+  default     = "cron(0 5,6,7,8 * * ? *)" # lambda executes every day, hourly from 5 - 8 am UTC
 }
 
 variable "rds_snapshot_account_share_docker_tag" {
   description = "Docker tag of rds snapshot share code to deploy"
   type        = string
-  default     = "295b9fed2aa4953d7f4dca988bd5c609fe30e468"
+  default     = "b349b13eee0103f4be7924389185ca4dc64391ca"
 }
 
 variable "aws_shared_account" {
