@@ -12,6 +12,7 @@ module "rds_snapshot_account_share_lambda" {
   sync_source_repo    = "champtitles/rds-snapshot-account-share"
   ecr_name            = "rds-snapshot-account-share-${random_string.identifier.result}"
   ecr_tag             = var.rds_snapshot_account_share_docker_tag
+  timeout             = var.timeout
   vpc_id              = var.vpc_id # eni delete resource bug https://github.com/hashicorp/terraform-provider-aws/issues/10329
   environment = {
     AWS_SHARED_ACCOUNT = var.aws_shared_account
