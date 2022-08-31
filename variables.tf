@@ -35,11 +35,17 @@ variable "schedule_expression" {
 variable "rds_snapshot_account_share_docker_tag" {
   description = "Docker tag of rds snapshot share code to deploy"
   type        = string
-  default     = "4669d9375f599eec2170194104758a8ff0142249"
+  default     = "d339254d2e9c6b627b879b4a9e9e9a1cbe358a10"
 }
 
 variable "aws_shared_account" {
   description = "snapshot aws account share"
+  type        = string
+  default     = ""
+}
+
+variable "kms_key_id" {
+  description = "kms key id"
   type        = string
   default     = ""
 }
