@@ -16,5 +16,6 @@ module "rds_snapshot_account_share_lambda" {
   vpc_id              = var.vpc_id # eni delete resource bug https://github.com/hashicorp/terraform-provider-aws/issues/10329
   environment = {
     AWS_SHARED_ACCOUNT = var.aws_shared_account
+    KMS_KEY_ID         = var.kms_key_id
   }
 }
