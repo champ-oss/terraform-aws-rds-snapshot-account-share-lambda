@@ -8,9 +8,19 @@ data "aws_iam_policy_document" "this" {
       "rds:ListTagsForResource",
       "rds:AddTagsToResource",
       "rds:DeleteDBSnapshot",
-      "rds:ModifyDBSnapshotAttribute"
+      "rds:ModifyDBSnapshotAttribute",
+      "kms:CreateGrant",
+      "kms:ListGrants",
+      "kms:RevokeGrant"
     ]
     resources = ["*"]
+    condition {
+      test = "Bool"
+      values = [
+        true
+      ]
+      variable = "kms:GrantIsForAWSResource"
+    }
   }
 }
 
