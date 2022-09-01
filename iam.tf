@@ -8,12 +8,21 @@ data "aws_iam_policy_document" "this" {
       "rds:ListTagsForResource",
       "rds:AddTagsToResource",
       "rds:DeleteDBSnapshot",
-      "rds:ModifyDBSnapshotAttribute",
+      "rds:ModifyDBSnapshotAttribute"
+    ]
+    resources = ["*"]
+  }
+  statement {
+    sid = "Allow attachment of persistent resources"
+
+    actions = [
       "kms:CreateGrant",
       "kms:ListGrants",
       "kms:RevokeGrant"
     ]
-    resources = ["*"]
+    resources = [
+      "*"
+    ]
     condition {
       test = "Bool"
       values = [
