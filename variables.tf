@@ -55,3 +55,9 @@ variable "timeout" {
   type        = number
   default     = 300
 }
+
+variable "lambda_policy" {
+  type        = any
+  description = "point to data.aws_iam_policy_document.custom.json"
+  default     = null
+}
