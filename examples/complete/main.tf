@@ -13,8 +13,25 @@ module "vpc" {
   retention_in_days        = 1
 }
 
+data "aws_iam_policy_document" "this" {
+  statement {
+    actions = [
+      "rds:CopyDBSnapshot",
+      "rds:ModifyDBSnapshot",
+      "rds:DescribeDBSnapshots",
+      "rds:DescribeDBInstances",
+      "rds:ListTagsForResource",
+      "rds:AddTagsToResource",
+      "rds:DeleteDBSnapshot",
+      "rds:ModifyDBSnapshotAttribute"
+    ]
+    resources = ["*"]
+  }
+}
+
 module "this" {
   source             = "../../"
   private_subnet_ids = module.vpc.private_subnets_ids
   vpc_id             = module.vpc.vpc_id
+  lambda_policy      = data.aws_iam_policy_document.this.json
 }

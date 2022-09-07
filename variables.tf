@@ -35,7 +35,7 @@ variable "schedule_expression" {
 variable "rds_snapshot_account_share_docker_tag" {
   description = "Docker tag of rds snapshot share code to deploy"
   type        = string
-  default     = "d339254d2e9c6b627b879b4a9e9e9a1cbe358a10"
+  default     = "928ed26a36bd0dd7c55e21b7aa9b455d8f0133e1"
 }
 
 variable "aws_shared_account" {
@@ -54,4 +54,10 @@ variable "timeout" {
   description = "https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lambda_function#timeout"
   type        = number
   default     = 300
+}
+
+variable "lambda_policy" {
+  type        = any
+  description = "point to data.aws_iam_policy_document.custom.json"
+  default     = null
 }

@@ -1,22 +1,6 @@
-data "aws_iam_policy_document" "this" {
-  statement {
-    actions = [
-      "rds:CopyDBSnapshot",
-      "rds:ModifyDBSnapshot",
-      "rds:DescribeDBSnapshots",
-      "rds:DescribeDBInstances",
-      "rds:ListTagsForResource",
-      "rds:AddTagsToResource",
-      "rds:DeleteDBSnapshot",
-      "rds:ModifyDBSnapshotAttribute"
-    ]
-    resources = ["*"]
-  }
-}
-
 resource "aws_iam_policy" "this" {
   name_prefix = var.git
-  policy      = data.aws_iam_policy_document.this.json
+  policy      = var.lambda_policy
 }
 
 resource "aws_iam_role_policy_attachment" "this" {
