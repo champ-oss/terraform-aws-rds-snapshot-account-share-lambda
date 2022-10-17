@@ -2,7 +2,7 @@ module github.com/champ-oss/terraform-aws-rds-snapshot-account-share-lambda
 
 go 1.17
 
-require github.com/gruntwork-io/terratest v0.40.22
+require github.com/gruntwork-io/terratest v0.40.24
 
 require (
 	cloud.google.com/go v0.83.0 // indirect
