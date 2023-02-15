@@ -35,7 +35,7 @@ variable "schedule_expression" {
 variable "rds_snapshot_account_share_docker_tag" {
   description = "Docker tag of rds snapshot share code to deploy"
   type        = string
-  default     = "928ed26a36bd0dd7c55e21b7aa9b455d8f0133e1"
+  default     = "ca017c5415359db69078fd1b279fea318644ecc6"
 }
 
 variable "aws_shared_account" {
