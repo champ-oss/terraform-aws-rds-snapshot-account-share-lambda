@@ -2,15 +2,22 @@ provider "aws" {
   region = "us-east-2"
 }
 
-locals {
-  git = "terraform-rds-util"
+data "aws_vpcs" "this" {
+  tags = {
+    purpose = "vega"
+  }
 }
 
-module "vpc" {
-  source                   = "github.com/champ-oss/terraform-aws-vpc.git?ref=v1.0.46-da2e05d"
-  name                     = local.git
-  availability_zones_count = 2
-  retention_in_days        = 1
+data "aws_subnets" "private" {
+  tags = {
+    purpose = "vega"
+    Type    = "Private"
+  }
+
+  filter {
+    name   = "vpc-id"
+    values = [data.aws_vpcs.this.ids[0]]
+  }
 }
 
 data "aws_iam_policy_document" "this" {
@@ -31,7 +38,7 @@ data "aws_iam_policy_document" "this" {
 
 module "this" {
   source             = "../../"
-  private_subnet_ids = module.vpc.private_subnets_ids
-  vpc_id             = module.vpc.vpc_id
+  private_subnet_ids = data.aws_subnets.private.ids
+  vpc_id             = data.aws_vpcs.this.ids[0]
   lambda_policy      = data.aws_iam_policy_document.this.json
 }

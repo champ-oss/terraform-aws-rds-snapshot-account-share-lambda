@@ -1,6 +1,6 @@
 # terraform-aws-rds-snapshot-account-share-lambda
 
-Summary: terraform module for aws rds snapshot account share utility
+Summary: terraform module for aws rds snapshot account share utility 
 
 ![ci](https://github.com/conventional-changelog/standard-version/workflows/ci/badge.svg)
 [![version](https://img.shields.io/badge/version-1.x-yellow.svg)](https://semver.org)
@@ -19,7 +19,7 @@ Summary: terraform module for aws rds snapshot account share utility
 * [Project Status](#project-status)
 
 ## General Information
-- deploy lambda python function used to copy latest snapshot from rds database and share with aws account
+- deploy lambda python function used to copy latest snapshot from rds mysql and aurora database and share with aws account
 
 ## Technologies Used
 - terraform
