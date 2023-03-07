@@ -8,7 +8,7 @@ locals {
 
 module "vpc" {
   source                   = "github.com/champ-oss/terraform-aws-vpc.git?ref=v1.0.46-da2e05d"
-  git                      = local.git
+  name                     = local.git
   availability_zones_count = 2
   retention_in_days        = 1
 }
